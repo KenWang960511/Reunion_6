@@ -14,7 +14,7 @@ namespace P03B_110
 			/// 
 			var firstDateRange = new DateRange(new DateTime(2020, 12, 13), DateTime.Today);
 			var timesp = firstDateRange.GetDuration();
-            Console.WriteLine($"從 {firstDateRange.StartDate:yyyy/MM/dd} 開始到 今天 {firstDateRange.EndDate:yyyy/MM/dd} 跟均均交往了 {timesp.TotalDays} 天");
+            Console.WriteLine($"從 {firstDateRange.StartDate:yyyy/MM/dd} 開始到 今天 {firstDateRange.EndDate:yyyy/MM/dd} {timesp.TotalDays} 天");
 			var secondDateRange = new DateRange(new DateTime(2023, 03, 24), new DateTime(2023, 09, 04));
             Console.WriteLine(firstDateRange.IsDateRangeOverlap(secondDateRange));
 			Console.ReadKey();
@@ -36,11 +36,7 @@ namespace P03B_110
 		}
 
 		public bool IsDateRangeOverlap(DateRange otherDateRange)
-		{
-			DateRange thisDateRange = this;
-
-			return thisDateRange.StartDate < otherDateRange.EndDate && thisDateRange.EndDate > otherDateRange.StartDate;
-		}
+			=> this.StartDate < otherDateRange.EndDate && this.EndDate > otherDateRange.StartDate;
 
 	}
 }
