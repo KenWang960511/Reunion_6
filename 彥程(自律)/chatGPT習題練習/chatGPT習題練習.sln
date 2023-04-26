@@ -1,0 +1,97 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33424.131
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P01_0050 列出小於n的所有質數", "P01_0050 列出小於n的所有質數\P01_0050 列出小於n的所有質數.csproj", "{0E5D36FD-183B-49E0-95FE-682856BF34FF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P02_100 計算n的正因數總和", "P02_100 計算n的正因數總和\P02_100 計算n的正因數總和.csproj", "{67A1EBBB-BD3E-43CE-A1C4-7EA053CED55F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P03_0001 使用 for 迴圈輸出一個字母金字塔", "P03_0001 使用 for 迴圈輸出一個字母金字塔\P03_0001 使用 for 迴圈輸出一個字母金字塔.csproj", "{B220A6B7-F75E-4703-A007-09EB8AA080EE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "0", "0\0.csproj", "{F98CFB36-DD51-4127-A05A-2A03B220107A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P01_0070 計算前n個費氏數列的和", "P01_0070 計算前n個費氏數列的和\P01_0070 計算前n個費氏數列的和.csproj", "{3A0C5245-2104-49AB-BE29-5DE38555B9F8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "00", "00\00.csproj", "{D3F241B2-F3F5-4ED1-8AED-C53A02D21F5C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P01_0050 列出小於n的所有質數(from Kristy) 有趣的判斷質數寫法", "P01_0050 列出小於n的所有質數(from Kristy) 有趣的判斷質數寫法\P01_0050 列出小於n的所有質數(from Kristy) 有趣的判斷質數寫法.csproj", "{DC6DA210-B4DE-4DD9-9753-F4FAD1977817}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P03_0003 顯示某一天(格式為yyyy_MM_dd)", "P03_0003 顯示某一天(格式為yyyy_MM_dd)\P03_0003 顯示某一天(格式為yyyy_MM_dd).csproj", "{53AEE671-29C6-40B0-9B1E-17CD6E98322A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P03B_050 寫學生類別", "P03B_050 寫學生類別\P03B_050 寫學生類別.csproj", "{5079EEA8-7825-4753-B51F-825F369E88DA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P03B_100 寫簡單的倒數計時器類別", "P03B_100 寫簡單的倒數計時器類別\P03B_100 寫簡單的倒數計時器類別.csproj", "{44BC66A2-503D-4989-987A-802589425B83}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P03B_110 寫日期時間範圍的類別", "P03B_110 寫日期時間範圍的類別\P03B_110 寫日期時間範圍的類別.csproj", "{57D06FBF-39F7-45DD-8041-5A8269D47BD5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P01_0070 計算前n個費氏數列的和(新版)", "P01_0070 計算前n個費氏數列的和(新版)\P01_0070 計算前n個費氏數列的和(新版).csproj", "{34131790-6D98-4D7F-840E-B716A407CF01}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P03B_120 寫一個學生類別", "P03B_120 寫一個學生類別\P03B_120 寫一個學生類別.csproj", "{8917C17B-19AF-4DFF-8347-9114B7BC1C78}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0E5D36FD-183B-49E0-95FE-682856BF34FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E5D36FD-183B-49E0-95FE-682856BF34FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E5D36FD-183B-49E0-95FE-682856BF34FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E5D36FD-183B-49E0-95FE-682856BF34FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67A1EBBB-BD3E-43CE-A1C4-7EA053CED55F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67A1EBBB-BD3E-43CE-A1C4-7EA053CED55F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67A1EBBB-BD3E-43CE-A1C4-7EA053CED55F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67A1EBBB-BD3E-43CE-A1C4-7EA053CED55F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B220A6B7-F75E-4703-A007-09EB8AA080EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B220A6B7-F75E-4703-A007-09EB8AA080EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B220A6B7-F75E-4703-A007-09EB8AA080EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B220A6B7-F75E-4703-A007-09EB8AA080EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F98CFB36-DD51-4127-A05A-2A03B220107A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F98CFB36-DD51-4127-A05A-2A03B220107A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F98CFB36-DD51-4127-A05A-2A03B220107A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F98CFB36-DD51-4127-A05A-2A03B220107A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A0C5245-2104-49AB-BE29-5DE38555B9F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A0C5245-2104-49AB-BE29-5DE38555B9F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A0C5245-2104-49AB-BE29-5DE38555B9F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A0C5245-2104-49AB-BE29-5DE38555B9F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3F241B2-F3F5-4ED1-8AED-C53A02D21F5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3F241B2-F3F5-4ED1-8AED-C53A02D21F5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3F241B2-F3F5-4ED1-8AED-C53A02D21F5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3F241B2-F3F5-4ED1-8AED-C53A02D21F5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC6DA210-B4DE-4DD9-9753-F4FAD1977817}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC6DA210-B4DE-4DD9-9753-F4FAD1977817}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC6DA210-B4DE-4DD9-9753-F4FAD1977817}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC6DA210-B4DE-4DD9-9753-F4FAD1977817}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53AEE671-29C6-40B0-9B1E-17CD6E98322A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53AEE671-29C6-40B0-9B1E-17CD6E98322A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53AEE671-29C6-40B0-9B1E-17CD6E98322A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53AEE671-29C6-40B0-9B1E-17CD6E98322A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5079EEA8-7825-4753-B51F-825F369E88DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5079EEA8-7825-4753-B51F-825F369E88DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5079EEA8-7825-4753-B51F-825F369E88DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5079EEA8-7825-4753-B51F-825F369E88DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44BC66A2-503D-4989-987A-802589425B83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44BC66A2-503D-4989-987A-802589425B83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44BC66A2-503D-4989-987A-802589425B83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44BC66A2-503D-4989-987A-802589425B83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57D06FBF-39F7-45DD-8041-5A8269D47BD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57D06FBF-39F7-45DD-8041-5A8269D47BD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57D06FBF-39F7-45DD-8041-5A8269D47BD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57D06FBF-39F7-45DD-8041-5A8269D47BD5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34131790-6D98-4D7F-840E-B716A407CF01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34131790-6D98-4D7F-840E-B716A407CF01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34131790-6D98-4D7F-840E-B716A407CF01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34131790-6D98-4D7F-840E-B716A407CF01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8917C17B-19AF-4DFF-8347-9114B7BC1C78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8917C17B-19AF-4DFF-8347-9114B7BC1C78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8917C17B-19AF-4DFF-8347-9114B7BC1C78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8917C17B-19AF-4DFF-8347-9114B7BC1C78}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {86E4E6EB-A498-4C3C-9A5C-36D31155F0C5}
+	EndGlobalSection
+EndGlobal
