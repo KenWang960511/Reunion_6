@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F6BC96F4-0005-4A66-98EA-5F2BC723EDD5}</ProjectGuid>
+    <ProjectGuid>{A51FB21B-E588-492E-AF8F-61E2C5AA1E83}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>LeaveTimes</RootNamespace>
     <AssemblyName>LeaveTimes</AssemblyName>

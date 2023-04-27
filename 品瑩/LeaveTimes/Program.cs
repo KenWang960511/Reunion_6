@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Remoting.Lifetime;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace LeaveTimes
 {
-	internal class Program
+	public class Program
 	{
 		/// <summary>
 		/// 請練習寫一個class具備計算請假時數的method, 並寫單元測試它, 確認它是對的
@@ -21,105 +20,105 @@ namespace LeaveTimes
 		/// 若請假9~23點,傳回8(小時),因為18點之後就下班了
 		/// </summary>
 		/// <param name="args"></param>
-		static void Main(string[] args)
-		{
-			Console.Write("嗨嗨!請輸入想要請假的時間\r\n請假起始日期 年/月/日:");
-			string inputkStart = Console.ReadLine();
-			bool okStart = DateTime.TryParse(inputkStart, out DateTime startTime);
-			Leave leaveStart = new Leave(); //呼叫Leave class檢查輸入的請假開始時間
-			leaveStart.LeaveStart = startTime;
+        static void Main(string[] args)
+        {
+            Console.Write("嗨嗨!請輸入想要請假的時間\r\n請假開始日期 年/月/日 時/分/秒:");
+            string inputkStart = Console.ReadLine();
+            bool okStart = DateTime.TryParse(inputkStart, out DateTime startTime);
+            if (okStart)
+            {
+                startTime = Leave.GetStartTime(startTime);
+            }
+            else
+            {
+                Console.WriteLine("格式不正確!");
+            }
 
-			Console.Write("請假結束時間:");
-			string inputEnd = Console.ReadLine();
-			bool okEnd = DateTime.TryParse(inputEnd, out DateTime endTime);
-			Leave leaveEnd = new Leave();//呼叫Leave class檢查輸入的請假結束時間
-			leaveEnd.LeaveEnd = endTime;
+            Console.Write("請假結束時間 年/月/日 時/分/秒:");
+            string inputEnd = Console.ReadLine();
+            bool okEnd = DateTime.TryParse(inputEnd, out DateTime endTime);
+            if (okEnd && endTime >= startTime)
+            {
+                endTime = Leave.GetEndTime(endTime);
+                double leaveResult = Leave.GetToTalLeave(startTime, endTime);
+                Console.WriteLine($"請假成功!請假開始時間:{startTime}，請假的結束時間:{endTime}，總共請假時數{leaveResult}");
+            }
+            else if (okEnd && endTime <= startTime)
+            {
+                Console.WriteLine("請假結束時間要晚於請假開始時間!");
+            }
+            else
+            {
+                Console.WriteLine("格式不正確!");
+            }
+            Console.Read();
+        }
+        public class Leave
+        {
+            public static DateTime GetStartTime(DateTime dtStart)
+            {
+                DateTime mor = new DateTime(dtStart.Year, dtStart.Month, dtStart.Day, 9, 0, 0);
+                DateTime noon = new DateTime(dtStart.Year, dtStart.Month, dtStart.Day, 12, 0, 0);
+                DateTime aft = new DateTime(dtStart.Year, dtStart.Month, dtStart.Day, 13, 0, 0);
 
-			double leaveResult = Leave.GetToTalLeave(leaveStart.LeaveStart, leaveEnd.LeaveEnd);
-			Console.WriteLine($"請假成功!請假開始時間:{leaveStart.LeaveStart}，請假的結束時間:{leaveEnd.LeaveEnd}，總共請假時數{leaveResult}");
+                if (dtStart < DateTime.Now) // 如果設置的值早於今天，拋出例外
+                {
+                    throw new ArgumentException("請假日期不能早於今天！");
+                }
 
-			Console.Read();
-		}
-		public class Leave //計算請假時數
-		{
-			private DateTime _leaveStart;
-			private DateTime _leaveEnd;
+                if (dtStart.TimeOfDay < mor.TimeOfDay)//開始請假時間早於9:00上班時間就從9:00開始算
+                {
+                    dtStart = mor; //9:00
+                }
 
-			public DateTime LeaveStart //請假開始時間
-			{
-				get
+                if (dtStart.TimeOfDay > noon.TimeOfDay && dtStart.TimeOfDay < aft.TimeOfDay)//開始請假時間晚於12:00、早於13:00上班時間就從13:00開始算
+                {
+                    dtStart = aft; //13:00
+                }
+                return dtStart;
+            }
+
+            public static DateTime GetEndTime(DateTime dtEnd)
+            {
+                DateTime noon = new DateTime(dtEnd.Year, dtEnd.Month, dtEnd.Day, 12, 0, 0);
+                DateTime aft = new DateTime(dtEnd.Year, dtEnd.Month, dtEnd.Day, 13, 0, 0);
+                DateTime nig = new DateTime(dtEnd.Year, dtEnd.Month, dtEnd.Day, 18, 0, 0);
+
+
+                if (dtEnd < DateTime.Now) // 如果設置的值早於今天或是請假時間，拋出例外
+                {
+                    throw new ArgumentException("請假結束日期不可早於今天!");
+                }
+
+                if (dtEnd.TimeOfDay >= noon.TimeOfDay && dtEnd.TimeOfDay <= aft.TimeOfDay)  //結束請假時間晚於12:00、早於13:00就算到12:00
+                {
+                    dtEnd = noon;
+                }
+
+                if (dtEnd.TimeOfDay >= nig.TimeOfDay)  //結束請假時間晚於18:00下班時間就算到18:00
 				{
-					return _leaveStart;
-				}
-				set
-				{
-					DateTime mor = new DateTime(value.Year, value.Month, value.Day, 9, 0, 0);
-					DateTime noon = new DateTime(value.Year, value.Month, value.Day, 12, 0, 0);
-					DateTime aft = new DateTime(value.Year, value.Month, value.Day, 13, 0, 0);
+                    dtEnd = nig;
+                }
+				return dtEnd;
+            }
+            public static double GetToTalLeave(DateTime dtStart, DateTime dtEnd)
+            {              
+				DateTime noon = new DateTime(dtEnd.Year, dtEnd.Month, dtEnd.Day, 12, 0, 0);
+                int breakTime = 1; //固定休息時數
+                TimeSpan actulToTalLeave = dtEnd - dtStart;  //請假時段
+                double actLeave;
 
-					if (value < DateTime.Now) // 如果設置的值早於今天，拋出例外
-					{
-						throw new ArgumentException("請假日期不能早於今天！");
-					}
-
-					if (value.TimeOfDay < mor.TimeOfDay)//開始請假時間早於9:00上班時間就從9:00開始算
-					{
-						value = mor; //9:00
-					}
-
-					if (value.TimeOfDay > noon.TimeOfDay && value.TimeOfDay < aft.TimeOfDay)//開始請假時間晚於12:00、早於13:00上班時間就從13:00開始算
-					{
-						value = aft; //13:00
-					}
-					_leaveStart = value;
-				}
-			}
-
-			public DateTime LeaveEnd //請假結束時間
-			{
-				get
-				{
-					return _leaveEnd;
-				}
-				set
-				{
-					DateTime mor = new DateTime(value.Year, value.Month, value.Day, 9, 0, 0);
-					DateTime noon = new DateTime(value.Year, value.Month, value.Day, 12, 0, 0);
-					DateTime aft = new DateTime(value.Year, value.Month, value.Day, 13, 0, 0);
-					DateTime nig = new DateTime(value.Year, value.Month, value.Day, 18, 0, 0);
-
-					if (value < DateTime.Now) // 如果設置的值早於今天或是請假時間，拋出例外
-					{
-						throw new ArgumentException("請假結束日期不可早於今日!");
-					}
-					else if (value.Date < _leaveStart.Date)
-					{
-						throw new ArgumentException("請假結束日期不可早於請假日期!");
-					}
-					else if (value.TimeOfDay < _leaveStart.TimeOfDay)
-					{
-						throw new ArgumentException("請假結束日期不可早於請假日期!");
-					}
-
-					if (value.TimeOfDay > noon.TimeOfDay && value.TimeOfDay <= aft.TimeOfDay)  //結束請假時間晚於12:00、早於13:00就算到12:00
-					{
-						value = noon;
-					}
-
-					if (value.TimeOfDay > nig.TimeOfDay)  //結束請假時間晚於18:00下班時間就算到18:00
-					{
-						value = nig;
-					}
-					_leaveEnd = value;
-				}
-			}
-
-			public static double GetToTalLeave(DateTime startTime, DateTime endTime) //計算請假時間
-			{
-				TimeSpan actulToTalLeave = endTime - startTime;  //請假時段
-				double actLeave = actulToTalLeave.TotalHours - 1;//請假時段-固定休息時段1小時
-				return actLeave;
-			}
-		}
+				if (dtEnd== noon)
+                {
+					actLeave = actulToTalLeave.TotalHours;//請假時數-休息時數
+					return actLeave;
+                }
+                else
+                {
+				actLeave = actulToTalLeave.TotalHours - breakTime;//請假時數-休息時數
+                }
+                return actLeave;
+            }
+        }
 	}
 }
